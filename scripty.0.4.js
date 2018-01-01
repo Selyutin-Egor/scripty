@@ -1,5 +1,5 @@
 /**
- * Created by Selyutin Egor on 24.12.2017.
+ * Created by Selyutin Egor on 26.12.2017.
  */
 'use strict';
 function $(selector) {
@@ -9,8 +9,8 @@ function $(selector) {
 
 (function () {
     let o = Object.prototype, obj_count, el_classList, search_class, class_count, i, j, s, pn, t, clone;
-    if(!o.hasClass)
-    o.hasClass = function (Class) {
+
+    o.hasClass||(o.hasClass = function (Class) {
         if ((!(obj_count = this.length)) || (!(Class.trim().length))) return; //искать либо нечего, либо не в чем
         search_class = Class.split(' '); // получаем список искомых классов
         class_count = search_class.length; // получаем количество искомых классов
@@ -22,9 +22,9 @@ function $(selector) {
                 if(!el_classList.contains(search_class[j])) return; //если хоть один элемент не содержит хоть один искомый класс - возвращаем false
         }
         return true;
-    };
-    if(!o.addClass)
-    o.addClass = function (Class) {
+    });
+
+    o.addClass||(o.addClass = function (Class) {
         if ((!(obj_count = this.length)) || (!(Class.trim().length))) return;// добавлять либо нечего, либо не во что
         search_class = Class.split(' '); // получаем список искомых к добавлению классов
         class_count = search_class.length; // получаем количество искомых к добавлению классов
@@ -39,9 +39,9 @@ function $(selector) {
             }
         }
 //        return this;
-    };
-    if(!o.removeClass)
-    o.removeClass = function (Class) {
+    });
+
+    o.removeClass||(o.removeClass = function (Class) {
         if ((!(obj_count = this.length))||(!(Class.trim().length))) return; // удалять либо нечего, либо не в чем
         search_class = Class.split(' '); // получаем список искомых для удаления классов
         class_count = search_class.length; // получаем количество искомых для удаления классов
@@ -56,9 +56,9 @@ function $(selector) {
             }
         }
 //        return this;
-    };
-    if(!o.toggleClass)
-    o.toggleClass = function (Class) {
+    });
+
+    o.toggleClass||(o.toggleClass = function (Class) {
         if ((!(obj_count = this.length)) || (!(Class.trim().length))) return; // переключать либо нечего, либо не в чем
         search_class = Class.split(' '); // получаем список переключаемых классов
         class_count = search_class.length; // получаем количество переключаемых классов
@@ -70,9 +70,9 @@ function $(selector) {
                 el_classList.toggle(search_class[j]); // переключаем классы
         }
 //        return this;
-    };
-    if(!o.fadeOut)
-    o.fadeOut = function(duration, delay) {
+    });
+
+    o.fadeOut||(o.fadeOut = function(duration, delay) {
          if (!(obj_count = this.length)) return; // скрывать нечего
          duration = (typeof duration !=='undefined' ? duration : 300);
          delay = (typeof delay !=='undefined' ? delay : 0);
@@ -83,9 +83,9 @@ function $(selector) {
              s.opacity = 0;
              s.transition = 'all ' + duration + 'ms ease-in-out ' + delay + 'ms';
          }
-    };
-    if(!o.fadeIn)
-    o.fadeIn = function(duration, delay) {
+    });
+
+    o.fadeIn||(o.fadeIn = function(duration, delay) {
          if (!(obj_count = this.length)) return; // показывать нечего
          duration = (typeof duration !=='undefined' ? duration : 300);
          delay = (typeof delay !=='undefined' ? delay : 0);
@@ -96,9 +96,9 @@ function $(selector) {
              s.opacity = 1;
              s.transition = 'all ' + duration + 'ms ease-in-out ' + delay + 'ms';
          }
-    };
-    if(!o.rotate)
-    o.rotate = function(angle, duration, delay) {
+    });
+
+    o.rotate||(o.rotate = function(angle, duration, delay) {
         if (!(obj_count = this.length)) return; // вращать нечего
         angle = (typeof angle !=='undefined' ? angle : -90);
         duration = (typeof duration !=='undefined' ? duration : 300);
@@ -110,9 +110,9 @@ function $(selector) {
             s.transition = 'all ' + duration + 'ms ease-in-out ' + delay + 'ms';
             s.transform = 'rotate(' + angle + 'deg)';
         }
-    };
-    if(!o.rotateX)
-    o.rotateX = function(angle, duration, delay) {
+    });
+
+    o.rotateX||(o.rotateX = function(angle, duration, delay) {
         if (!(obj_count = this.length)) return; // вращать нечего
         angle = (typeof angle !=='undefined' ? angle : -90);
         duration = (typeof duration !=='undefined' ? duration : 300);
@@ -124,9 +124,9 @@ function $(selector) {
             s.transition = 'all ' + duration + 'ms ease-in-out ' + delay + 'ms';
             s.transform = 'rotateX(' + angle + 'deg)';
         }
-    };
-    if(!o.rotateY)
-    o.rotateY = function(angle, duration, delay) {
+    });
+
+    o.rotateY||(o.rotateY = function(angle, duration, delay) {
         if (!(obj_count = this.length)) return; // вращать нечего
         angle = (typeof angle !=='undefined' ? angle : -90);
         duration = (typeof duration !=='undefined' ? duration : 300);
@@ -138,9 +138,9 @@ function $(selector) {
             s.transition = 'all ' + duration + 'ms ease-in-out ' + delay + 'ms';
             s.transform = 'rotateY(' + angle + 'deg)';
         }
-    };
-    if(!o.scale)
-    o.scale = function(coeff, duration, delay) {
+    });
+
+    o.scale||(o.scale = function(coeff, duration, delay) {
         if (!(obj_count = this.length)) return; // масштабировать нечего
         coeff = (typeof coeff !=='undefined' ? coeff : 1.2);
         duration = (typeof duration !=='undefined' ? duration : 300);
@@ -152,9 +152,9 @@ function $(selector) {
             s.transition = 'all ' + duration + 'ms ease-in-out ' + delay + 'ms';
             s.transform = 'scale(' + coeff + ')';
         }
-    };
-    if(!o.remove)
-    o.remove = function() {
+    });
+
+    o.remove||(o.remove = function() {
         if (!(obj_count = this.length)) return; // нет объекта для удаления
 
         for (let i=obj_count; i--;)
@@ -168,9 +168,9 @@ function $(selector) {
                 console.log(e.message);
             }
         }
-    };
-    if(!o.removeParent)
-    o.removeParent = function() {
+    });
+
+    o.removeParent||(o.removeParent = function() {
         if (!(obj_count = this.length)) return; // нет объекта для удаления родителя
 
         for (let i=obj_count; i--;)
@@ -184,9 +184,9 @@ function $(selector) {
                 console.log(e.message);
             }
         }
-    };
-    if(!o.insertBefore)
-    o.insertBefore = function(element) {
+    });
+
+    o.insertBefore||(o.insertBefore = function(element) {
         if (!(obj_count = this.length)) return; // нет объекта, перед которым вставлять
 
         for (let i=obj_count; i--;)
@@ -203,6 +203,15 @@ function $(selector) {
                 console.log(e.message);
             }
         }
-    }
+    });
+
+    o.replaceClass||(o.replaceClass = function(oldClass, newClass) {
+        if (!(obj_count = this.length)) return; // нет объектов, у которых менять классы
+        for (let i=obj_count; i--;)
+        {
+            this.removeClass(oldClass);
+            this.addClass(newClass);
+        }
+    });
 
 }).call($.prototype);
