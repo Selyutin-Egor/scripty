@@ -114,7 +114,7 @@ function $(selector) {
 
     o.rotateX||(o.rotateX = function(angle, duration, delay) {
         if (!(obj_count = this.length)) return; // вращать нечего
-        angle = (typeof angle !=='undefined' ? angle : -90);
+        angle = (typeof angle !=='undefined' ? angle : 360);
         duration = (typeof duration !=='undefined' ? duration : 300);
         delay = (typeof delay !=='undefined' ? delay : 0);
 
@@ -128,7 +128,7 @@ function $(selector) {
 
     o.rotateY||(o.rotateY = function(angle, duration, delay) {
         if (!(obj_count = this.length)) return; // вращать нечего
-        angle = (typeof angle !=='undefined' ? angle : -90);
+        angle = (typeof angle !=='undefined' ? angle : 360);
         duration = (typeof duration !=='undefined' ? duration : 300);
         delay = (typeof delay !=='undefined' ? delay : 0);
 
