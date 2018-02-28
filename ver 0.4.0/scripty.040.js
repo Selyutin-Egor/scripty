@@ -72,6 +72,16 @@ function $(selector) {
 //        return this;
     });
 
+    o.replaceClass||(o.replaceClass = function(oldClass, newClass) {
+        if (!(obj_count = this.length)) return; // нет объектов, у которых менять классы
+        for (let i=obj_count; i--;)
+        {
+            this.removeClass(oldClass);
+            this.addClass(newClass);
+        }
+    });
+
+
     o.fadeOut||(o.fadeOut = function(duration, delay) {
          if (!(obj_count = this.length)) return; // скрывать нечего
          duration = (typeof duration !=='undefined' ? duration : 300);
@@ -205,13 +215,5 @@ function $(selector) {
         }
     });
 
-    o.replaceClass||(o.replaceClass = function(oldClass, newClass) {
-        if (!(obj_count = this.length)) return; // нет объектов, у которых менять классы
-        for (let i=obj_count; i--;)
-        {
-            this.removeClass(oldClass);
-            this.addClass(newClass);
-        }
-    });
 
-}).call($.prototype);
+}).call($);
