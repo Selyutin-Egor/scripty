@@ -10,8 +10,6 @@ git clone git://github.com/Selyutin-Egor/scripty.git
 ```
 
 ## Browser support
-  - Internet Explorer 10+
-
   - All modern browsers
 
 ## Methods description
@@ -58,7 +56,7 @@ Applying NodeList.replaceClass(oldClass, newClass) removes class oldClass and ad
 
 ``` Examples:```
 ```
-$('div').replaceClass('round', 'box'); // Removes class 'round' and adds class 'box' to all div’s.
+$('div').replaceClass('round', 'box'); // Removes class 'round' and adds class 'box' to all divs.
 $('.menu').replaceClass('yellow', 'green'); // Removes class 'yellow' and adds class 'green' to all elements which have class “menu”
 ```
 
@@ -68,7 +66,7 @@ Applying NodeList.fadeOut(duration, delay) fadeouts every element of NodeList co
 ``` Examples:```
 ```
 $('ul li').fadeOut();
-$('div').fadeOut(700, 2000); // All div’s will fadeouts slowly (during the 700 ms) after 2 seconds.
+$('div').fadeOut(700, 2000); // All divs will fadeouts slowly (during the 700 ms) after 2 seconds.
 ```
 
 #### fadeIn method 
@@ -77,7 +75,25 @@ Applying NodeList.fadeIn(duration, delay) fadeins every element of NodeList coll
 ``` Examples:```
 ```
 $('ul li').fadeIn();
-$('div').fadeIn(700, 2000); // All div’s will fadeins slowly (during the 700 ms) after 2 seconds.
+$('div').fadeIn(700, 2000); // All divs will fadeins slowly (during the 700 ms) after 2 seconds.
+```
+
+#### slideUp method 
+Applying NodeList.slideUp(duration, delay) hides every element of NodeList collection with a sliding motion during the first argument “duration” (ms) with delay accordingly the second argument “delay” (ms). Both arguments are not required: default value “duration” is 300, default value “delay” is 0.
+
+``` Examples:```
+```
+$('ul li').slideUp();
+$('div').slideUp(700, 2000); // All divs will hides slowly (during the 700 ms) with a sliding motion after 2 seconds.
+```
+
+#### slideDown method
+Applying NodeList.slideDown(duration, delay) displays every element of NodeList collection with a sliding motion during the first argument “duration” (ms) with delay accordingly the second argument “delay” (ms). Both arguments are not required: default value “duration” is 300, default value “delay” is 0.
+
+``` Examples:```
+```
+$('ul li').slideDown();
+$('div').slideDown(700, 2000); // All divs will displays slowly (during the 700 ms) with a sliding motion after 2 seconds.
 ```
 
 #### rotate method 
@@ -85,7 +101,7 @@ Applying NodeList.rotate(angle, duration, delay) rotates every element of NodeLi
 
 ``` Examples:```
 ```
-$('div').rotate(); // All div’s rotates counterclock-wise at 90 degrees during the 300 ms after 0 ms.
+$('div').rotate(); // All divs rotates counterclock-wise at 90 degrees during the 300 ms after 0 ms.
 $('#btn-logo').rotate(360, 700, 700); // #btn-logo rotates counter-clockwise at 360 deg during the 700 ms after 700 ms.
 ```
 
@@ -94,7 +110,7 @@ Applying NodeList.rotateX(angle, duration, delay) rotates every element of NodeL
 
 ``` Examples:```
 ```
-$('div').rotateX(); // All div’s rotates around the abscissa (horizontal axis) at 360 degrees during the 300 ms after 0 ms.
+$('div').rotateX(); // All divs rotates around the abscissa (horizontal axis) at 360 degrees during the 300 ms after 0 ms.
 $('#btn-logo').rotateX(180, 700, 700); // #btn-logo rotates around the abscissa (horizontal axis) at 180 degrees during the 700 ms after 700 ms.
 ```
 
@@ -103,7 +119,7 @@ Applying NodeList.rotateY(angle, duration, delay) rotates every element of NodeL
 
 ``` Examples:```
 ```
-$('div').rotateY(); // All div’s rotates around the ordinate (vertical axis) at 360 degrees during the 300 ms after 0 ms.
+$('div').rotateY(); // All divs rotates around the ordinate (vertical axis) at 360 degrees during the 300 ms after 0 ms.
 $('#btn-logo').rotateY(180, 700, 700); // #btn-logo rotates around the ordinate (vertical axis) at 180 degrees during the 700 ms after 700 ms.
 ```
 
@@ -112,8 +128,17 @@ Applying NodeList.scale(coeff, duration, delay) resizes every element of NodeLis
 
 ``` Examples:```
 ```
-$('div').scale(); // All div’s increases by 1.2 times during the 300 ms after 0 ms.
+$('div').scale(); // All divs increases by 1.2 times during the 300 ms after 0 ms.
 $('#btn-logo').scale(1.5, 600, 3000); // #btn-logo increases by 1.5 times during the 600 ms after 3 seconds.
+```
+
+#### blur method
+Applying NodeList.blur(blurSize, duration, delay) blurs every element of NodeList collection on the 2D plane at an “blurSize” (decimal) which represent the amount of pixels to be applied, during the second argument “duration” (ms) with delay accordingly the third argument “delay” (ms). All arguments are not required: default value “blurSize” is 2, default value “duration” is 300, default value “delay” is 0.
+
+``` Examples:```
+```
+$('div').blur(); // All divs blurs by "2 pixels" during the 300 ms after 0 ms.
+$('#btn-logo').blur(3, 600, 3000); // #btn-logo blurs by "3 pixels" during the 600 ms after 3 seconds.
 ```
 
 #### remove method
